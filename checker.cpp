@@ -19,7 +19,7 @@ bool isBPOk(float bpm){
 }
 
 bool isSpoOk(float spo2){
-  return isVitalOk(spo2,90,100)
+  return isVitalOk(spo2,90,100);
 }
 
 bool isRespOk(float respRate){
@@ -39,6 +39,6 @@ int main() {
   assert(vitalsAreOk(160, 90, 40) == false); // test bp high
   assert(vitalsAreOk(80, 99, 25) == false);  // test resp low
   assert(vitalsAreOk(80, 99, 100) == false); // test resp low
-  assert(vitalsAreOk(80, 85, 60) == false); // test bp low
+  assert(vitalsAreOk(80, 85, 60) == false); // test spo2 low
 
 }
