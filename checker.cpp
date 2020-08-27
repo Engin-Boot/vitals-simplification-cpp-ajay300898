@@ -1,7 +1,7 @@
 #include <assert.h>
 
 // enum Range
-bool bool isBPOk(float bpm);
+bool isBPOk(float bpm);
 bool isSpoOk(float spo2);
 bool isRespOk(float respRate);
 bool isVitalOk(float value, float low, float high);
