@@ -1,7 +1,9 @@
 #include <assert.h>
 
 // enum Range
-
+bool checkBPAndProceed(float bpm, float spo2, float respRate);
+bool checkSpoAndProceed(float spo2, float respRate);
+bool checkRespRate(float respRate);
 const int bp_limits[] = {70,150};
 const int resp_limits[] = {30,95};
 
@@ -13,7 +15,7 @@ bool checkBPAndProceed(float bpm, float spo2, float respRate){
 }
 
 bool checkSpoAndProceed(float spo2, float respRate){
-  if(spo>=90){
+  if(spo2>=90){
     return checkRespRate(respRate);
   }
   return false;
