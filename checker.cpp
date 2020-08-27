@@ -9,7 +9,7 @@ const int bp_limits[] = {70,150};
 const int resp_limits[] = {30,95};
 
 bool isVitalOk(float value, float low, float high){
-  return (value < low || value > high);
+  return (value >= low && value <= high);
 }
 bool isBPOk(float bpm){
   return isVitalOk(bpm,bp_limits[0],bp_limits[1]);
