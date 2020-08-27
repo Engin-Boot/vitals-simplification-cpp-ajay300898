@@ -4,14 +4,18 @@
 bool bool isBPOk(float bpm);
 bool isSpoOk(float spo2);
 bool isRespOk(float respRate);
+bool isVitalOk(float value, float low, float high);
 const int bp_limits[] = {70,150};
 const int resp_limits[] = {30,95};
 
-bool isBPOk(float bpm){
-  if(bpm >= bp_limits[0] && bpm <= bp_limits[1] ){
-    return true;
+bool isVitalOk(float value, float low, float high){
+  if(value < low || value > high){
+    return false;
   }
-  return false;
+  else return true;
+}
+bool isBPOk(float bpm){
+  return isVitalOk(bpm,bp_limits[0],bp_limits[1]);
 }
 
 bool isSpoOk(float spo2){
@@ -22,10 +26,7 @@ bool isSpoOk(float spo2){
 }
 
 bool isRespOk(float respRate){
-  if(respRate >= resp_limits[0] && respRate <= resp_limits[1] ){
-    return true;
-  }
-  return false;
+  return isVitalOk(respRate,resp_limits[0],resp_limits[1]);
 }
 
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
