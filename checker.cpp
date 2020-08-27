@@ -8,7 +8,7 @@ const int bp_limits[] = {70,150};
 const int resp_limits[] = {30,95};
 
 bool checkBPAndProceed(float bpm, float spo2, float respRate){
-  if(bpm >= bp_limit[0] || bpm <= bp_limit[1] ){
+  if(bpm >= bp_limits[0] || bpm <= bp_limits[1] ){
     return checkSpoAndProceed(spo2,respRate);
   }
   return false;
