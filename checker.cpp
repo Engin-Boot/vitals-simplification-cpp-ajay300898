@@ -30,6 +30,7 @@ bool isRespOk(float respRate){
 
 bool vitalsAreOk(float bpm, float spo2, float respRate) {
   return isBPOk(bpm) && isSpoOk(spo2) && isRespOk(respRate);
+}
 
 int main() {
   assert(vitalsAreOk(80, 95, 60) == true);
