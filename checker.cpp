@@ -19,10 +19,7 @@ bool isBPOk(float bpm){
 }
 
 bool isSpoOk(float spo2){
-  if(spo2>=90){
-    return true;
-  }
-  return false;
+  return isVitalOk(spo2,90,100)
 }
 
 bool isRespOk(float respRate){
@@ -34,6 +31,14 @@ bool vitalsAreOk(float bpm, float spo2, float respRate) {
 }
 
 int main() {
+  assert(isVitalOk(10,50,100) == false);
+  assert(isVitalOk(1000,50,100) == false);
+  assert(isVitalOk(70,50,100) == true);
   assert(vitalsAreOk(80, 95, 60) == true);
-  assert(vitalsAreOk(60, 90, 40) == false);
+  assert(vitalsAreOk(60, 90, 40) == false);  // test bp low
+  assert(vitalsAreOk(160, 90, 40) == false); // test bp high
+  assert(vitalsAreOk(80, 99, 25) == false);  // test resp low
+  assert(vitalsAreOk(80, 99, 100) == false); // test resp low
+  assert(vitalsAreOk(80, 85, 60) == false); // test bp low
+
 }
