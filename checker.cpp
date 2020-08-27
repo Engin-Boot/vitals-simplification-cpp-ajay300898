@@ -1,14 +1,33 @@
 #include <assert.h>
 
-bool vitalsAreOk(float bpm, float spo2, float respRate) {
-  if(bpm < 70 || bpm > 150) {
-    return false;
-  } else if(spo2 < 90) {
-    return false;
-  } else if(respRate < 30 || respRate > 95) {
-    return false;
+// enum Range
+
+const int bp_limits[] = {70,150};
+const int resp_limits[] = {30,95};
+
+bool checkBPAndProceed(float bpm, float spo2, float respRate){
+  if(bpm >= bp_limit[0] || bpm <= bp_limit[1] ){
+    return checkSpoAndProceed(spo2,respRate);
   }
-  return true;
+  return false;
+}
+
+bool checkSpoAndProceed(float spo2, float respRate){
+  if(spo>=90){
+    return checkRespRate(respRate);
+  }
+  return false;
+}
+
+bool checkRespRate(float respRate){
+  if(respRate >= resp_limits[0] || respRate <= resp_limits[1] ){
+    return true;
+  }
+  return false;
+}
+
+bool vitalsAreOk(float bpm, float spo2, float respRate) {
+  return checkBPAndProceed(bpm, spo2, respRate);
 }
 
 int main() {
