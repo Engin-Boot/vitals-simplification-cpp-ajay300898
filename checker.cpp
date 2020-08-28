@@ -44,7 +44,7 @@ class CheckVitals{
     if(isVitalOk(bpm,bp_limits[0],bp_limits[1])){
       return true;
     }
-    alert->raiseAnAlert(bpm,"BP ");
+    alert->raiseAnAlert("bpm","BP ");
     return false;
   }
 
@@ -52,7 +52,7 @@ class CheckVitals{
     if(isVitalOk(spo2,90,100)){
       return true;
     }
-    alert->raiseAnAlert(spo2,"SPO2");
+    alert->raiseAnAlert("spo2","SPO2");
     return false;
   }
 
@@ -60,7 +60,7 @@ class CheckVitals{
     if(isVitalOk(respRate,resp_limits[0],resp_limits[1])){
       return true;
     }
-    alert->raiseAnAlert(respRate,"RESP");
+    alert->raiseAnAlert("respRate","RESP");
     return false;
   }
 
@@ -75,16 +75,16 @@ class CheckVitals{
 
 int main() {
   CheckVitals x;
-  x->setAlert(new AlertInSMS);
+  x.setAlert(new AlertInSMS);
   
-  assert(x->isVitalOk(10,50,100) == false);
-  assert(x->isVitalOk(1000,50,100) == false);
-  assert(x->isVitalOk(70,50,100) == true);
-  assert(x->vitalsAreOk(80, 95, 60) == true);
-  assert(x->vitalsAreOk(60, 90, 40) == false);  // test bp low
-  assert(x->vitalsAreOk(160, 90, 40) == false); // test bp high
-  assert(x->vitalsAreOk(80, 99, 25) == false);  // test resp low
-  assert(x->vitalsAreOk(80, 99, 100) == false); // test resp low
-  assert(x->vitalsAreOk(80, 85, 60) == false); // test spo2 low
+  assert(x.isVitalOk(10,50,100) == false);
+  assert(x.isVitalOk(1000,50,100) == false);
+  assert(x.isVitalOk(70,50,100) == true);
+  assert(x.vitalsAreOk(80, 95, 60) == true);
+  assert(x.vitalsAreOk(60, 90, 40) == false);  // test bp low
+  assert(x.vitalsAreOk(160, 90, 40) == false); // test bp high
+  assert(x.vitalsAreOk(80, 99, 25) == false);  // test resp low
+  assert(x.vitalsAreOk(80, 99, 100) == false); // test resp low
+  assert(x.vitalsAreOk(80, 85, 60) == false); // test spo2 low
 
 }
