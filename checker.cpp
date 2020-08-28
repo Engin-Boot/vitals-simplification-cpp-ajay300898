@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 // enum Range
-bool isBPOk(float bpm);
+/*bool isBPOk(float bpm);
 bool isSpoOk(float spo2);
 bool isRespOk(float respRate);
 bool isVitalOk(float value, float low, float high);
+*/
 const int bp_limits[] = {70,150};
 const int resp_limits[] = {30,95};
 
