@@ -4,11 +4,6 @@
 #include<string>
 #include<vector>
 using namespace std;
-enum RangeLimits { low,high };
-
-const int bp_limits[] = { 70,150 };
-const int resp_limits[] = { 30,95 };
-
 class Alert {
 public:
     virtual void raiseAnAlert( string message) = 0;
